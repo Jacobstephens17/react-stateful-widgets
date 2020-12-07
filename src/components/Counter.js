@@ -46,11 +46,12 @@ STEP 6:
   This click handler needs to use 'setCount' to set the 'count' to be zero again.
 */
 
-import React, { useState } from 'react'; /* STEP 0 */
-export default function Counter() {
+import React, {useState} from 'react'; /* STEP 0 */
   
+export default function Counter() {
   const [counter, setCounter] = useState(0);
-  const [evenOrOdd, setEvenOrOdd] = useState('even')
+
+
 
   const increment = () => {
     setCounter(counter + 1);
@@ -67,18 +68,12 @@ export default function Counter() {
     marginBottom: '0.3em',
     color: 'royalblue', /* STEP 2 */
   };
-  
-  {counter % 2 == 0  ?  style.color = 'royalblue':  style.color = 'crimson'};
-  
-  
-  
-  
-
+  {counter % 2 == 0 ? style.color = 'royalblue' : style.color = "crimson"}
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number {counter} is {evenOrOdd} {/* STEP 3 */}
+        Number {counter} is {counter%2==0 ? 'Even':'Odd'}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
